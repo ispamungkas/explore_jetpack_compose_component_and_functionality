@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     // Serialization
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.ui.text.google.fonts)
 
     // Testing
     testImplementation(libs.junit)

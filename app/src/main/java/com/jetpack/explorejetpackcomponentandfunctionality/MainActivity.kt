@@ -9,7 +9,7 @@ import com.jetpack.explorejetpackcomponentandfunctionality.ui.theme.ExploreJetpa
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        enableEdgeToEdge( )
         setContent {
             ExploreJetpackComponentAndFunctionalityTheme {
                 NavigationScreen()

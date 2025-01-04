@@ -16,8 +16,6 @@ import com.jetpack.explorejetpackcomponentandfunctionality.ui.theme.ExploreJetpa
 
 @Composable
 fun InitialScreen(modifier: Modifier = Modifier) {
-
-
     Scaffold(
         modifier = modifier,
         contentWindowInsets = WindowInsets(0.dp)
