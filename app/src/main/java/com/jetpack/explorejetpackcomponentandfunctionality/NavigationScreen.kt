@@ -1,7 +1,9 @@
 package com.jetpack.explorejetpackcomponentandfunctionality
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,13 +18,22 @@ fun NavigationScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController()
 ) {
+    val currentContext = LocalContext.current
+
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = NavInitialScreen
     ) {
         composable<NavInitialScreen> {
-            InitialScreen()
+            InitialScreen(
+                navigateToRegister = {
+                    Toast.makeText(currentContext, "Under Development", Toast.LENGTH_SHORT).show()
+                },
+                navigateToLogin = {
+                    navController.navigate(NavHomeScreen)
+                }
+            )
         }
         composable<NavHomeScreen> {
             HomeScreen()
