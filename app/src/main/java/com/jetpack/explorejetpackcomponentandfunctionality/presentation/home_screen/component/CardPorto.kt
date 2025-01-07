@@ -42,7 +42,7 @@ fun CardPorto(modifier: Modifier = Modifier) {
             .fillMaxWidth()
     ) {
         Column(
-            modifier = Modifier.padding(10.dp)
+            modifier = Modifier.padding(15.dp)
         ) {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,

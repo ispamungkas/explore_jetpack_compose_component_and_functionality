@@ -7,6 +7,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Notifications
@@ -41,9 +43,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jetpack.explorejetpackcomponentandfunctionality.R
+import com.jetpack.explorejetpackcomponentandfunctionality.presentation.home_screen.component.CardAddFoundItem
 import com.jetpack.explorejetpackcomponentandfunctionality.presentation.home_screen.component.CardFoundsItem
 import com.jetpack.explorejetpackcomponentandfunctionality.presentation.home_screen.component.CardPorto
 import com.jetpack.explorejetpackcomponentandfunctionality.ui.theme.ExploreJetpackComponentAndFunctionalityTheme
+import com.jetpack.explorejetpackcomponentandfunctionality.utils.ObjectDummy
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
@@ -81,7 +85,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     modifier = Modifier.padding(horizontal = 20.dp)
                 )
                 Spacer(
-                    modifier = Modifier.height(30.dp)
+                    modifier = Modifier.height(20.dp)
                 )
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -102,7 +106,24 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         )
                     }
                 }
-                CardFoundsItem()
+                Spacer(modifier = Modifier.height(10.dp))
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(5.dp),
+                    contentPadding = PaddingValues(5.dp)
+                ) {
+                    item {
+                        CardAddFoundItem() {}
+                    }
+                    items(count = 5) {
+                        CardFoundsItem(
+                            infos = ObjectDummy.getListOfIntradayInfo()
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                TabScreen(
+                    modifier.padding(horizontal = 10.dp)
+                )
             }
         }
     }
@@ -169,7 +190,7 @@ fun TopAppBarWithHighlight(modifier: Modifier = Modifier) {
                 Column(
                     modifier = Modifier
                         .weight(0.6f)
-                        .padding(horizontal = 7.dp)
+                        .padding(horizontal = 15.dp)
                 ) {
                     Text(
                         "Hello, Maspam!",
